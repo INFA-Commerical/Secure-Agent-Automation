@@ -141,6 +141,3 @@ while status.strip() != 'NOT_CONFIGURED' and status.strip() != 'INITIALIZING' an
     x+=1
     time.sleep(1)
     status = os.popen("./consoleAgentManager.sh getStatus").read()
-
-status = os.popen("./consoleAgentManager.sh getStatus").read()
-print(status)
