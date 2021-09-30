@@ -19,7 +19,7 @@ import os
 import time
 
 url = "https://dm-us.informaticacloud.com/ma/api/v2/user/login"
-installDir = "~" # make sure directory exists or is at least writable 
+installDir = "~/" # make sure directory exists or is at least writable 
 username = ""
 password = ""
 
