@@ -47,7 +47,9 @@ while password == "" or username == "" or installDir == "":
         assert isinstance(installDir, str)
     except Exception as error:
         print('ERROR', error)
-
+        
+if installDir[-1] != '/':
+    installDir = installDir + '/'
 
 payload = {
     "username": username,
