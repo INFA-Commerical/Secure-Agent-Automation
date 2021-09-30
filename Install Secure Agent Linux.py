@@ -17,11 +17,25 @@ import json
 import subprocess
 import os
 import time
+import getpass
+from builtins import input
 
 url = "https://dm-us.informaticacloud.com/ma/api/v2/user/login"
-installDir = "~/" # make sure directory exists or is at least writable 
+installDir = "" # make sure directory exists or is at least writable 
 username = ""
 password = ""
+
+while password == "" or username == "" or installDir == "": 
+    try: 
+        username = input("Username: ")
+        assert isinstance(username, str)
+        password = getpass.getpass("Password")
+        installDir = input('Install Directory: ')
+        assert isinstance(installDir, str)
+    except Exception as error:
+        print('ERROR', error)
+
+    
 
 
 print("**********************************************************")
@@ -141,3 +155,6 @@ while status.strip() != 'NOT_CONFIGURED' and status.strip() != 'INITIALIZING' an
     x+=1
     time.sleep(1)
     status = os.popen("./consoleAgentManager.sh getStatus").read()
+
+status = os.popen("./consoleAgentManager.sh getStatus").read()
+print(status)
