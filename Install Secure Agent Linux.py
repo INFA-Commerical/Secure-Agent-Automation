@@ -142,8 +142,9 @@ else:
             x+=1
         else:
             login = os.system("./consoleAgentManager.sh configureToken " + username + " " + resObj['installToken'])
-            print(login)
-            print("If output shows error, please configure manually with the following command")
+            print("")
+            print("If output shows error, please configure manually with the following commands")
+            print("cd"+installDir+"apps/agentcore/")
             print("./consoleAgentManager.sh configureToken " + username + " " + resObj['installToken'])
             x=10
 
@@ -161,5 +162,4 @@ while status.strip() != 'NOT_CONFIGURED' and status.strip() != 'INITIALIZING' an
     time.sleep(1)
     status = os.popen("./consoleAgentManager.sh getStatus").read()
 
-status = os.popen("./consoleAgentManager.sh getStatus").read()
 print(status)
