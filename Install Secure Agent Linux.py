@@ -146,7 +146,7 @@ else:
             login = os.system("./consoleAgentManager.sh configureToken " + username + " " + resObj['installToken'])
             print("")
             print("If output shows error, please configure manually with the following commands")
-            print("cd"+installDir+"apps/agentcore/")
+            print("cd "+installDir+"apps/agentcore/")
             print("./consoleAgentManager.sh configureToken " + username + " " + resObj['installToken'])
             x=10
 
