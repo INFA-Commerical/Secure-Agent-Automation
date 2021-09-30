@@ -29,6 +29,14 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
    $username = '' #Change to your username (for the org you want to install the SA into)
    $password  = '' #password for the username you chose
    $loginUrl = 'https://dm-us.informaticacloud.com/ma/api/v2/user/login'
+
+   while (($username -eq '') -or ($password -eq '')) {
+    Write-Output "No Username/Password set, please enter now: "
+    $username = Read-Host "Please Enter Username: "
+    $password = Read-Host "Please enter Password: " -AsSecureString
+   }
+
+   $password = ([Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($password)))
         
    Write-Output '##################################################################'
    Write-Output '######################  Logging into IICS  #######################'
