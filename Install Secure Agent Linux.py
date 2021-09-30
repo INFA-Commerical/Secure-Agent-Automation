@@ -123,7 +123,7 @@ while x <10:
         time.sleep(3)
     else:
         x=10
-
+os.system("rm install.py agent64_install_ext.bin")
 os.chdir(installDir+"apps/agentcore/")
 
 serviceStart = os.system("./infaagent startup")
