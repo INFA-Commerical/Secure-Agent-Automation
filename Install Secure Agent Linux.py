@@ -42,7 +42,7 @@ while password == "" or username == "" or installDir == "":
     try: 
         username = input("Username: ")
         assert isinstance(username, str)
-        password = getpass.getpass("Password")
+        password = getpass.getpass("Password: ")
         installDir = input('Install Directory: ')
         assert isinstance(installDir, str)
     except Exception as error:
