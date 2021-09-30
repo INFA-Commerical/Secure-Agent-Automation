@@ -18,7 +18,12 @@ import subprocess
 import os
 import time
 import getpass
-from builtins import input
+
+#only issue with support Python2 and Python3 is the input.. so... Quick and dirty overwriting of it. 
+try:
+    input = raw_input
+except NameError:
+    pass
 
 url = "https://dm-us.informaticacloud.com/ma/api/v2/user/login"
 installDir = "" # make sure directory exists or is at least writable 
@@ -26,6 +31,8 @@ username = ""
 password = ""
 
 while password == "" or username == "" or installDir == "": 
+    print('')
+    print("Invalid Username, Password, or Directory found.... Please enter new information")
     try: 
         username = input("Username: ")
         assert isinstance(username, str)
@@ -34,8 +41,6 @@ while password == "" or username == "" or installDir == "":
         assert isinstance(installDir, str)
     except Exception as error:
         print('ERROR', error)
-
-    
 
 
 print("**********************************************************")
