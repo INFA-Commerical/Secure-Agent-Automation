@@ -30,6 +30,12 @@ installDir = "" # make sure directory exists or is at least writable
 username = ""
 password = ""
 
+os.system("clear")
+print("**********************************************************")
+print("******************    Installing IICS   ******************")
+print("**********************************************************")
+print('')
+
 while password == "" or username == "" or installDir == "": 
     print('')
     print("Invalid Username, Password, or Directory found.... Please enter new information")
@@ -41,12 +47,6 @@ while password == "" or username == "" or installDir == "":
         assert isinstance(installDir, str)
     except Exception as error:
         print('ERROR', error)
-
-
-print("**********************************************************")
-print("******************    Installing IICS   ******************")
-print("**********************************************************")
-print('')
 
 
 payload = {
