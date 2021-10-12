@@ -28,7 +28,8 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
    $installDir = 'C:\Program Files\Informatica Cloud Secure Agent' #Default install dir
    $username = '' #Change to your username (for the org you want to install the SA into)
    $password  = '' #password for the username you chose
-   $loginUrl = 'https://dm-us.informaticacloud.com/ma/api/v2/user/login'
+   #$loginUrl = ''
+   $region = ''
 
    while (($username -eq '') -or ($password -eq '')) {
     Write-Output "No Username/Password set, please enter now: "
@@ -37,6 +38,16 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
     $password = ([Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($password)))
    }
 
+   while (($region -ne 'us') -and ($region -ne 'em') -and ($region -ne 'ap')) {
+    Write-Output "Please enter authentication region (us, em, ap)"
+    Write-Output "us for North America"
+    Write-Output "em for Europe"
+    Write-Output "ap for Asia / Pacific"
+    Write-Output ""
+    $region = Read-Host "Please enter region: "
+   }
+
+$loginUrl = 'https://dm-'+$region+'.informaticacloud.com/ma/api/v2/user/login'
   
         
    Write-Output '##################################################################'
