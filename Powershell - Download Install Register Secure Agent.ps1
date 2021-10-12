@@ -34,9 +34,10 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
     Write-Output "No Username/Password set, please enter now: "
     $username = Read-Host "Please Enter Username: "
     $password = Read-Host "Please enter Password: " -AsSecureString
+    $password = ([Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($password)))
    }
 
-   $password = ([Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($password)))
+  
         
    Write-Output '##################################################################'
    Write-Output '######################  Logging into IICS  #######################'
