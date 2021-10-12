@@ -36,17 +36,44 @@ print("******************    Installing IICS   ******************")
 print("**********************************************************")
 print('')
 
+#url = "https://dm-us.informaticacloud.com/ma/api/v2/user/login"
+url = ''
+installDir = "" # make sure directory exists or is at least writable 
+username = ""
+password = ""
+region = ""
+
 while password == "" or username == "" or installDir == "": 
-    print('')
-    print("Invalid Username, Password, or Directory found.... Please enter new information")
     try: 
+        print("**********************************************************")
+        print("****************    Enter Credentials   ******************")
+        print("**********************************************************")
+        print('')
         username = input("Username: ")
         assert isinstance(username, str)
-        password = getpass.getpass("Password: ")
+        password = getpass.getpass("Password")
         installDir = input('Install Directory: ')
         assert isinstance(installDir, str)
     except Exception as error:
         print('ERROR', error)
+
+    while region == "": 
+        try: 
+            print("**********************************************************")
+            print("*******************    Enter Region   ********************")
+            print("**********************************************************")
+            print('')
+            print("Please enter authentication region (us, em, ap)")
+            print("us for North America")
+            print("em for Europe")
+            print("ap for Asia / Pacific")
+            print("")
+            region = input("Region: ")
+            assert isinstance(region, str)
+        except Exception as error:
+            print('ERROR', error)
+
+url = 'https://dm-'+region+'.informaticacloud.com/ma/api/v2/user/login'
         
 if installDir[-1] != '/':
     installDir = installDir + '/'
