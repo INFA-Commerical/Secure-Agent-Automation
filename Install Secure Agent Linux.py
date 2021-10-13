@@ -25,11 +25,6 @@ try:
 except NameError:
     pass
 
-url = "https://dm-us.informaticacloud.com/ma/api/v2/user/login"
-installDir = "" # make sure directory exists or is at least writable 
-username = ""
-password = ""
-
 os.system("clear")
 print("**********************************************************")
 print("******************    Installing IICS   ******************")
