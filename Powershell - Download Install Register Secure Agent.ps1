@@ -93,7 +93,9 @@ $loginUrl = 'https://dm-'+$region+'.informaticacloud.com/ma/api/v2/user/login'
    Write-Output '##################################################################'
    Write-Output '##############  Downloading Secure Agent Installer  ##############'
    Write-Output '##################################################################'
-   $download = Invoke-WebRequest -Uri $response.downloadUrl -OutFile $installer
+   #$download = Invoke-WebRequest -Uri $response.downloadUrl -OutFile $installer
+   $download = New-Object net.webclient
+   $download.Downloadfile($response.downloadUrl, $installer)
    
    Write-Output 'Succesfully Downloaded Secure Agent'
    Write-Output ''
